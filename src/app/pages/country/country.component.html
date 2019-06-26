@@ -1,0 +1,39 @@
+<div *ngIf="country">
+  <h1>{{ country.name }}</h1>
+
+  <div class="row animated fadeIn fast">
+    <div class="col-7">
+
+        <h5>Data</h5>
+    
+        <ul class="list-group">
+          <li class="list-group-item">Population: {{ country.population | number }}</li>
+          <li class="list-group-item">Area: {{ country.area | number }}</li>
+          <li class="list-group-item">Calling code: {{ country.callingCodes }}</li>
+          <li class="list-group-item">TimeZone: {{ country.timezones }}</li>
+        </ul>
+    
+        <hr>
+        <h5>Borders</h5>
+        <ul class="list-group">
+          <li class="list-group-item"
+            *ngFor="let border of country.borders">
+              {{ border }}
+          </li>
+        </ul>
+    
+      </div>
+    
+      <div class="col-5">
+        <h5>Flag</h5>
+    
+        <img [src]="country.flag" class="flag" [alt]="country.name">
+        <br>
+        <br>
+        <a class="btn btn-danger btn-block" routerLink="/">
+          Return
+        </a>
+    
+      </div>
+  </div>
+</div>
